@@ -1,4 +1,4 @@
-package hello.hellospringrepository;
+package hello.hellospring.repository;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import hello.hellospring.domain.Member;
 
-//@Repository
+@Repository
 public class MemoryMemberRepository implements MemberRepository {
 	
 	//저장을 어딘가 해놔야한다. 

@@ -7,22 +7,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import hello.hellospring.domain.Member;
-import hello.hellospringrepository.MemberRepository;
-import hello.hellospringrepository.MemoryMemberRepository;
+import hello.hellospring.repository.MemberRepository;
+import hello.hellospring.repository.MemoryMemberRepository;
 
 @Service
 public class MemberService {
 	
 	//서비스를 만들려면 먼저 리포지토리가 있어야한다.
-	
 	private final MemberRepository memberRepository;
 	
 	
-//	@Autowired
-	public MemberService(MemberRepository memberRepository) {
-		this.memberRepository = memberRepository;
-	}
+	@Autowired 
+	  public MemberService(MemberRepository memberRepository) {
+	  this.memberRepository = memberRepository;
+	   }
+	 
 	
+	//회원가입
 	public Long join(Member member) {
 		//같은 이름이 있는 중복 회원 X
 		

@@ -9,8 +9,8 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import hello.hellospring.domain.Member;
-import hello.hellospringrepository.MemberRepository;
-import hello.hellospringrepository.MemoryMemberRepository;
+import hello.hellospring.repository.MemberRepository;
+import hello.hellospring.repository.MemoryMemberRepository;
 
 public class MemoryMemberRepositoryTest {
 	
@@ -26,7 +26,7 @@ public class MemoryMemberRepositoryTest {
 	//저장했던 거 확인해보기
 	public void save() {
 		Member member = new Member();
-		member.setName("Spring");
+		member.setName("spring");
 		
 		repository.save(member);
 		
@@ -39,6 +39,7 @@ public class MemoryMemberRepositoryTest {
 		//Assertions.assertThat(member).isEqualTo(result);//저장한 멤버가 find에서 했을 때 튀어나오게
 		//assertThat(result).isEqualTo(member);
 		//import org.assertj.core.api.Assertions;를 import하면 두번째 코드로 간단하게 사용할 수 있다.
+		assertThat(member).isEqualTo(result);
 	}
 	
 	@Test
@@ -49,7 +50,7 @@ public class MemoryMemberRepositoryTest {
 		repository.save(member1);
 		
 		Member member2 = new Member();
-		member2.setName("Spring2");
+		member2.setName("spring2");
 		repository.save(member2);
 		
 		Member result = repository.findByName("spring1").get();
@@ -60,7 +61,7 @@ public class MemoryMemberRepositoryTest {
 	@Test
 	public void findAll() {
 		Member member1 = new Member();
-		member1.setName("spring");
+		member1.setName("spring1");
 		repository.save(member1);
 		
 		Member member2 = new Member();
