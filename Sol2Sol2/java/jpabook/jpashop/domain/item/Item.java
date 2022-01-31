@@ -1,11 +1,16 @@
 package jpabook.jpashop.domain.item;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+
+import jpabook.jpashop.domain.Category;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
@@ -17,6 +22,10 @@ public class Item {
 	 
 	 private int price;
 	 private int stockQuantity;
+	 
+	 
+	 private List<Category> categroyies = new ArrayList<>();
+	 
 	 
 	//setter getter
 	public Long getId() {
