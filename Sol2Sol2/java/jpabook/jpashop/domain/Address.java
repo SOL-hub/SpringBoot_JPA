@@ -2,7 +2,7 @@ package jpabook.jpashop.domain;
 
 import javax.persistence.Embeddable;
 
-@Embeddable
+@Embeddable //어딘가 내장이될 수 있다.
 public class Address {
 
 	private String city;
