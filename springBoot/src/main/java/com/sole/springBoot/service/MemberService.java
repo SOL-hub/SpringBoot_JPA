@@ -3,13 +3,22 @@ package com.sole.springBoot.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.stereotype.Service;
+
 import com.sole.springBoot.domain.Member;
 import com.sole.springBoot.repository.MemberRepository;
 import com.sole.springBoot.repository.MemoryMemberRepository;
 
+@Service
 public class MemberService {
 	
-	private final MemberRepository memberRepository = new MemoryMemberRepository();
+	//private final MemberRepository memberRepository = new MemoryMemberRepository();
+	private final MemberRepository memberRepository;
+	
+	//외부에서 넣어주도록 바꿔주자.
+	public MemberService(MemberRepository memberRepository) {
+		this.memberRepository=memberRepository;
+	}
 	
 	//회원가입
 	public Long join(Member member) {
