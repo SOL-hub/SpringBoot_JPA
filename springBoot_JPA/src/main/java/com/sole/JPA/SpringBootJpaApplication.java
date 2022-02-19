@@ -8,6 +8,8 @@ public class SpringBootJpaApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootJpaApplication.class, args);
+		//실행확인
+		
 	}
 
 }
