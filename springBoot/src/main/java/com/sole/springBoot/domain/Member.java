@@ -19,6 +19,8 @@ public class Member {
 	public void setId(long id2) {
 		
 	}
+	//확인
+	
 	
 	
 }
