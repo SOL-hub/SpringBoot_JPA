@@ -2,6 +2,7 @@ package com.test.Restful_API.service;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -44,5 +45,22 @@ public class UserService {
 			}
 		}
 		return null; //같은 아이디 값이 없을 경우 null반환
+	}
+	
+	//사용자 삭제
+	public User deleteById(int id) {
+		//열거형 데이터를 순차적으로 접근해서 사용하기위해 iterator사용
+		Iterator<User> iterator = users.iterator();
+		
+		while(iterator.hasNext()) {
+			User user = iterator.next();
+			
+			if(user.getId() == id) {
+				iterator.remove();
+				return user;
+			}
+		}
+		
+		return null;
 	}
 }
