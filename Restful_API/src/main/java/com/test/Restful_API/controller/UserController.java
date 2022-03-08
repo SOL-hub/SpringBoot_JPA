@@ -4,6 +4,8 @@ import java.net.URI;
 import java.nio.file.attribute.UserPrincipalNotFoundException;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -46,7 +48,7 @@ public class UserController {
 	
 	//사용자 등록
 	@PostMapping("/users")
-	public  ResponseEntity<User> createUser(@RequestBody User user) {
+	public  ResponseEntity<User> createUser(@Valid @RequestBody User user) {
 		User savedUser = userService.save(user);
 		
 		//요청값 변환 - HTTP 상태코드 201로 변환하여 created, 등록된 것을 바로 확인할 수 있도록 설정
